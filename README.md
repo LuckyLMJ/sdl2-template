@@ -1,5 +1,5 @@
-# Paint Puzzle Game
-a game made in C/SDL2 for my final computer science project
+# SDL2 template
+a simple template for getting SDL2 to work.
 
 ## Compilation Instructions
 ### Windows
