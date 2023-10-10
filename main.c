@@ -15,10 +15,6 @@ int screenHeight = 900;
 
 int TARGET_FPS = 60;
 
-int random(int max) {
-	return (rand() % max);
-}
-
 void init() {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_CreateWindowAndRenderer(screenWidth, screenHeight, SDL_WINDOW_SHOWN, &screen, &renderer);
@@ -54,11 +50,11 @@ void gameLoop() {
         for (int i = 0; i < 1; i++) {
             //Place a random rectangle somewhere.
             SDL_Rect rect;
-            SDL_SetRenderDrawColor(renderer, random(255), random(255), random(255), 255);
-            rect.w = random(screenWidth/2) + 20;
-            rect.h = random(screenHeight/2) + 20;
-            rect.x = random(screenWidth - rect.w);
-            rect.y = random(screenHeight - rect.h);
+            SDL_SetRenderDrawColor(renderer, rand()%255, rand()%255, rand()%255, 255);
+            rect.w = (rand() % screenWidth/2) + 20;
+            rect.h = (rand() % screenHeight/2) + 20;
+            rect.x = rand() % screenWidth - rect.w;
+            rect.y = rand() % screenHeight - rect.h;
             SDL_RenderFillRect(renderer, &rect);
         }
         //Render the rectangles
@@ -71,7 +67,6 @@ void gameLoop() {
         int key;
 
         SDL_Event event;
-        SDL_PollEvent(&event);
 		if (SDL_PollEvent(&event)) {
 			switch (event.type) {
                 case SDL_QUIT:
